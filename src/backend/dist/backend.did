@@ -1,0 +1,25 @@
+type EnquiryInput = 
+ record {
+   company: text;
+   email: text;
+   message: text;
+   name: text;
+   phone: text;
+   "service": text;
+ };
+type EnquiryId = nat;
+type Enquiry = 
+ record {
+   company: text;
+   email: text;
+   id: EnquiryId;
+   message: text;
+   name: text;
+   phone: text;
+   "service": text;
+   timestamp: int;
+ };
+service : {
+  listEnquiries: () -> (vec Enquiry) query;
+  submitEnquiry: (input: EnquiryInput) -> (EnquiryId);
+}
